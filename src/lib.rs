@@ -8,6 +8,7 @@ extern crate num_bigint as bigint;
 
 
 use core::ops::Sub;
+use core::convert::TryInto;
 use num::Integer;
 pub use bigint::{BigUint,RandBigInt};
 use num_traits::{Zero, One};
@@ -99,7 +100,7 @@ impl Generator {
         let mut rng = rand::thread_rng();
         loop {
             // Make mutable and set LSB and MSB
-            let candidate: BigUint = rng.gen_biguint(n);
+            let candidate: BigUint = rng.gen_biguint(n.try_into().unwrap());
             //candidate.set_bit(0, true);
             //candidate.set_bit((n-1) as u32, true);
             if is_prime(&candidate) == false { 
@@ -123,7 +124,7 @@ impl Generator {
     /// ```
     pub fn new_uint(n: usize) -> BigUint {
         let mut rng = rand::thread_rng();
-        return rng.gen_biguint(n);
+        return rng.gen_biguint(n.try_into().unwrap());
     }
 
     /// # Generate Prime Number
@@ -149,7 +150,7 @@ impl Generator {
         
         loop {
             // Make mutable and set LSB and MSB
-            let candidate: BigUint = rng.gen_biguint(n);
+            let candidate: BigUint = rng.gen_biguint(n.try_into().unwrap());
             
             //candidate.set_bit(0, true);
             //candidate.set_bit((n-1) as u32, true);
@@ -174,7 +175,7 @@ impl Generator {
         let mut rng = rand::thread_rng();
         loop {
             // Make mutable and set LSB and MSB
-            let candidate: BigUint = rng.gen_biguint(n);
+            let candidate: BigUint = rng.gen_biguint(n.try_into().unwrap());
             //candidate.set_bit(0, true);
             //candidate.set_bit((n-1) as u32, true);
             if is_prime(&candidate) == true {

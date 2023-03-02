@@ -2,7 +2,7 @@
 name = "num-primes"
 version = "0.3.0"
 authors = ["AtropineTears"]
-edition = "2018"
+edition = "2021"
 description = "A Rust Library For Generating Large Prime and Composite Numbers using num with a simplistic interface."
 keywords = ["random","primes","bigint","num","math"]
 categories = ["cryptography", "science","algorithms"]
